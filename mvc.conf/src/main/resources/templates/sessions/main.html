@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Intervenants</title>
+
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+</style>
+ </head>
+<body>
+
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">Intervenants</a></li>
+  <li><a href="#contact">Sessions</a></li>
+  <li><a href="#about">Ajout Session</a></li>
+</ul>
+
+<h2>Sessios</h2>
+
+<table border="1">
+<tr>
+<th>Id</th>
+<th>theme</th>
+<th>description</th>
+<th>date</th>
+<th>intervenant</th>
+</tr>
+<tr th:each="s: ${sessions}">
+<td th:text="${s.id}"/>
+<td th:text="${s.theme}"/>
+<td th:text="${s.description}"/>
+<td th:text="${s.date}"/>
+<td th:text="${s.intervenant.nom}"/>
+
+</tr>
+</table>
+</body>
+</html>
